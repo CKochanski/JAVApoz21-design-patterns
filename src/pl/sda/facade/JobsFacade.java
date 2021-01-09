@@ -1,5 +1,6 @@
 package pl.sda.facade;
 
+import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -18,6 +19,10 @@ public class JobsFacade {
     public void unschedule(long id) {
         ScheduledFuture<?> future = jobsRepository.remove(id);
         future.cancel(true);
+    }
+
+    public Set<Job> getScheduledJobs() {
+        return jobsRepository.getAll();
     }
 
     private Runnable someTask() {

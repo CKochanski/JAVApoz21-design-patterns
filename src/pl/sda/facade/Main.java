@@ -7,6 +7,7 @@ public class Main {
 
         long scheduledJobId = jobsFacade.schedule(1L);
 
+        System.out.println(jobsFacade.getScheduledJobs());
         Thread.sleep(3000L);
 
         jobsFacade.unschedule(scheduledJobId);

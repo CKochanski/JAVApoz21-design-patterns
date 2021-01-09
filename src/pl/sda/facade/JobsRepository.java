@@ -23,4 +23,8 @@ public class JobsRepository {
     private long getLastId() {
         return jobs.stream().mapToLong(Job::getId).max().orElse(1L);
     }
+
+    public Set<Job> getAll() {
+        return jobs;
+    }
 }
