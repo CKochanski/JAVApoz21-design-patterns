@@ -1,5 +1,7 @@
 package pl.sda.chainOfResponsibility;
 
+import java.util.List;
+
 public class InfoLogger implements Logger {
 
     private final Logger nextLogger;
@@ -9,12 +11,11 @@ public class InfoLogger implements Logger {
     }
 
     @Override
-    public void log(LoggingType loggingType, String message) {
-        if (this.supportedType() == loggingType) {
+    public void log(List<LoggingType> loggingType, String message) {
+        if (loggingType.contains(this.supportedType())) {
             System.out.println("INFO: " + message);
-        } else {
-            this.nextLogger.log(loggingType, message);
         }
+        this.nextLogger.log(loggingType, message);
     }
 
     @Override
