@@ -2,5 +2,5 @@ package pl.sda.chainOfResponsibility;
 
 public enum LoggingType {
 
-    INFO, WARN, ERROR
+    INFO, WARN, ERROR, DEBUG
 }
